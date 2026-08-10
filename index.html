@@ -838,16 +838,15 @@
     .product-video-grid {
       grid-template-columns: 1fr !important;
     }
-    .product-video-grid video {
-      min-height: 280px !important;
-      max-height: 340px;
+    .product-video-grid > div:first-child {
+      min-height: 300px !important;
     }
     .product-video-copy {
       padding: 36px 28px !important;
     }
   }
   @media (max-width: 480px) {
-    .product-video-grid video {
+    .product-video-grid > div:first-child {
       min-height: 240px !important;
     }
   }
@@ -1246,13 +1245,13 @@
 
     <!-- Product video -->
     <div class="reveal" style="margin-bottom:56px;">
-      <div class="product-video-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border2);">
-        <div style="overflow:hidden;background:var(--forest);min-height:340px;">
+      <div class="product-video-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border2);align-items:stretch;">
+        <div style="position:relative;overflow:hidden;background:var(--forest);min-height:420px;">
           <video
             src="product-video.mp4"
             autoplay muted loop playsinline webkit-playsinline preload="auto"
             id="productVideo"
-            style="width:100%;height:100%;object-fit:cover;display:block;min-height:340px;">
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
           </video>
         </div>
         <div class="product-video-copy" style="padding:56px 52px;background:var(--white);display:flex;flex-direction:column;justify-content:center;">
