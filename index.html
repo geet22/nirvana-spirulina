@@ -743,6 +743,10 @@
     .certs-row         { grid-template-columns: repeat(2,1fr); }
     .footer-bottom     { flex-direction: column; text-align: center; }
     .footer-links      { flex-wrap: wrap; justify-content: center; }
+    /* product video stacks on mobile */
+    .product-video-grid { grid-template-columns: 1fr !important; }
+    .product-video-grid video { min-height: 260px !important; }
+    .product-video-copy { padding: 36px 28px !important; }
   }
   </style>
 </head>
@@ -1100,6 +1104,45 @@
         <h2>Choose Your Daily Practice</h2>
       </div>
       <p>All products are cold-pressed, GMP certified, FSSAI approved, and independently tested by a NABL-accredited laboratory. No exceptions.</p>
+    </div>
+
+    <!-- Product video -->
+    <div class="reveal" style="margin-bottom:56px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border2);">
+        <div style="overflow:hidden;background:var(--forest);">
+          <video
+            src="product-video.mp4"
+            autoplay muted loop playsinline preload="auto"
+            style="width:100%;height:100%;object-fit:cover;display:block;min-height:340px;">
+          </video>
+        </div>
+        <div style="padding:56px 52px;background:var(--white);display:flex;flex-direction:column;justify-content:center;">
+          <span class="eyebrow" style="margin-bottom:18px;">The Product</span>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--forest);margin-bottom:20px;line-height:1.2;">
+            Every Tablet. <em style="font-style:italic;">Nothing More.</em>
+          </h3>
+          <p style="font-size:.95rem;color:var(--mid);line-height:1.8;margin-bottom:16px;">
+            Pure cold-pressed spirulina. No binders, no fillers, no flow agents. What you see is exactly what you take — the concentrated output of twenty acres of Aurangabad sunlight.
+          </p>
+          <p style="font-size:.95rem;color:var(--mid);line-height:1.8;margin-bottom:32px;">
+            Each tablet is pressed at ≤35°C to preserve every enzyme, every amino acid, and every microgram of phycocyanin — the blue pigment unique to spirulina that no other food on Earth contains.
+          </p>
+          <div style="display:flex;gap:32px;padding-top:28px;border-top:1px solid var(--border);">
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--forest);line-height:1;">500mg</div>
+              <div style="font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-top:6px;">Per tablet</div>
+            </div>
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--forest);line-height:1;">≤35°C</div>
+              <div style="font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-top:6px;">Press temperature</div>
+            </div>
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--forest);line-height:1;">98%</div>
+              <div style="font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-top:6px;">Nutrients preserved</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="products-list">
       <div class="product reveal">
