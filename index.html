@@ -898,7 +898,7 @@
 
 <!-- ═══ HERO ════════════════════════════════════════════ -->
 <section id="hero">
-  <video autoplay muted loop playsinline preload="auto" src="farm-video.mp4"></video>
+  <video autoplay muted loop playsinline webkit-playsinline preload="auto" src="farm-video.mp4" id="heroVideo"></video>
   <div class="hero-shade"></div>
   <div class="container hero-body">
     <p class="hero-kicker">Grown on the Deccan Plateau</p>
@@ -1046,7 +1046,7 @@
   </div>
   <div class="container-wide">
     <div class="farm-video-wrap reveal">
-      <video src="farm-video.mp4" controls playsinline preload="metadata"></video>
+      <video src="farm-video.mp4" autoplay muted loop playsinline webkit-playsinline controls preload="auto" id="farmVideo"></video>
     </div>
     <div class="farm-stats-row">
       <div class="farm-stat reveal"><div class="fs-n">20</div><div class="fs-l">Acres of cultivation land, Aurangabad</div></div>
@@ -1238,7 +1238,8 @@
         <div style="overflow:hidden;background:var(--forest);">
           <video
             src="product-video.mp4"
-            autoplay muted loop playsinline preload="auto"
+            autoplay muted loop playsinline webkit-playsinline preload="auto"
+            id="productVideo"
             style="width:100%;height:100%;object-fit:cover;display:block;min-height:340px;">
           </video>
         </div>
@@ -1469,6 +1470,28 @@
 </div>
 
 <script>
+  /* ── iOS Safari autoplay fix ───────────────────────── */
+  // Attempt to play all muted autoplay videos immediately
+  function tryPlayAll() {
+    document.querySelectorAll('video[autoplay]').forEach(v => {
+      v.muted = true;
+      const p = v.play();
+      if (p !== undefined) {
+        p.catch(() => {
+          // If blocked, play on first user touch/click
+          const resume = () => { v.play(); };
+          document.addEventListener('touchstart', resume, { once: true, passive: true });
+          document.addEventListener('click',      resume, { once: true, passive: true });
+        });
+      }
+    });
+  }
+  // Run on load and on visibility change (tab switch / phone unlock)
+  window.addEventListener('load', tryPlayAll);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') tryPlayAll();
+  });
+
   /* ── Nav solid on scroll ───────────────────────────── */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 60), {passive:true});
