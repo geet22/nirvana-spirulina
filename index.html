@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nirvana Organics — Pure Spirulina, Aurangabad</title>
+  <meta name="description" content="Nirvana Organics cultivates India's most potent spirulina on 20 acres in Aurangabad, Maharashtra. 70% protein. GMP certified. Cold-pressed tablets." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+  /* ── RESET ─────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  /* ── TOKENS ────────────────────────────────────────── */
+  :root {
+    --paper:   #F6F2EB;
+    --cream:   #EDE8DF;
+    --white:   #FFFFFF;
+    --forest:  #1C3829;
+    --sage:    #3E6650;
+    --sage-lt: #82AA95;
+    --gold:    #A8722A;
+    --gold-lt: #C9913E;
+    --ink:     #181818;
+    --mid:     #5A5550;
+    --border:  #D9D3C8;
+    --border2: #C8C0B3;
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── TYPE SCALE ────────────────────────────────────── */
+  .serif     { font-family: 'Cormorant Garamond', serif; }
+  .eyebrow   { font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--sage); }
+  .body-sm   { font-size: .88rem; line-height: 1.7; color: var(--mid); }
+  .body-reg  { font-size: 1rem;   line-height: 1.8; color: var(--mid); }
+  .body-lg   { font-size: 1.1rem; line-height: 1.8; color: var(--mid); }
+
+  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.05; letter-spacing: -.01em; }
+  h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
+  h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.2; }
+  h4 { font-family: 'Jost', sans-serif; font-weight: 500; line-height: 1.3; }
+
+  a { text-decoration: none; color: inherit; }
+  img { display: block; width: 100%; object-fit: cover; }
+
+  /* ── LAYOUT ────────────────────────────────────────── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  .container-wide { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+  .section { padding: 110px 0; }
+  .section-sm { padding: 70px 0; }
+  hr.rule { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* ── BUTTONS ───────────────────────────────────────── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'Jost', sans-serif; font-size: .82rem; font-weight: 500;
+    letter-spacing: .12em; text-transform: uppercase;
+    padding: 14px 34px; cursor: pointer; transition: all .25s;
+    border: none;
+  }
+  .btn-dark {
+    background: var(--forest); color: var(--white);
+  }
+  .btn-dark:hover { background: var(--sage); }
+  .btn-outline {
+    background: transparent; border: 1px solid var(--ink); color: var(--ink);
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--white); }
+  .btn-outline-lt {
+    background: transparent; border: 1px solid rgba(255,255,255,.6); color: var(--white);
+  }
+  .btn-outline-lt:hover { background: var(--white); color: var(--ink); }
+  .btn-gold { background: var(--gold); color: var(--white); }
+  .btn-gold:hover { background: var(--gold-lt); }
+
+  /* ── FADE IN ───────────────────────────────────────── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ══════════════════════════════════════════════════════
+     NAVIGATION
+  ══════════════════════════════════════════════════════ */
+  #nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 28px 0;
+    transition: background .4s, padding .4s, border-color .4s;
+    border-bottom: 1px solid transparent;
+  }
+  #nav.solid {
+    background: var(--paper);
+    padding: 18px 0;
+    border-color: var(--border);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo {
+    display: flex; flex-direction: column;
+  }
+  .nav-logo .n1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 500; letter-spacing: .06em;
+    color: var(--white);
+    transition: color .4s;
+  }
+  #nav.solid .nav-logo .n1 { color: var(--forest); }
+  .nav-logo .n2 {
+    font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    transition: color .4s;
+  }
+  #nav.solid .nav-logo .n2 { color: var(--sage); }
+  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: .78rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    color: rgba(255,255,255,.75);
+    transition: color .3s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  #nav.solid .nav-links a { color: var(--mid); }
+  #nav.solid .nav-links a:hover { color: var(--forest); }
+  .nav-shop {
+    font-size: .75rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+    padding: 10px 28px;
+    border: 1px solid rgba(255,255,255,.45);
+    color: var(--white);
+    transition: all .3s;
+  }
+  .nav-shop:hover { background: var(--white); color: var(--ink); border-color: var(--white); }
+  #nav.solid .nav-shop { border-color: var(--forest); color: var(--forest); }
+  #nav.solid .nav-shop:hover { background: var(--forest); color: var(--white); }
+
+  /* ══════════════════════════════════════════════════════
+     HERO
+  ══════════════════════════════════════════════════════ */
+  #hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: flex-end;
+    overflow: hidden;
+  }
+  #hero video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(.68);
+  }
+  .hero-shade {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,20,14,.75) 0%, rgba(10,20,14,.1) 55%, transparent 100%);
+  }
+  .hero-body {
+    position: relative; z-index: 2;
+    padding: 0 0 72px;
+    width: 100%;
+  }
+  .hero-kicker {
+    font-size: .72rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase;
+    color: rgba(255,255,255,.6);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .hero-kicker::before { content: ''; width: 40px; height: 1px; background: rgba(255,255,255,.4); }
+  h1.hero-h1 {
+    font-size: clamp(3.4rem, 7vw, 6.2rem);
+    font-weight: 300;
+    color: var(--white);
+    max-width: 820px;
+    margin-bottom: 36px;
+    letter-spacing: -.02em;
+  }
+  h1.hero-h1 em { font-style: italic; color: #9DCFB6; }
+  .hero-foot {
+    display: flex; align-items: center; gap: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-meta {
+    font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+    padding-left: 32px;
+    border-left: 1px solid rgba(255,255,255,.2);
+  }
+
+  /* Scroll indicator */
+  .scroll-cue {
+    position: absolute; bottom: 32px; right: 48px; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: .5;
+  }
+  .scroll-cue span { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--white); writing-mode: vertical-lr; }
+  .scroll-line { width: 1px; height: 50px; background: linear-gradient(var(--white), transparent); animation: scrollDrop 2s ease-in-out infinite; }
+  @keyframes scrollDrop { 0%,100%{transform:scaleY(1);transform-origin:top} 50%{transform:scaleY(.4)} }
+
+  /* ══════════════════════════════════════════════════════
+     MANIFESTO STRIP
+  ══════════════════════════════════════════════════════ */
+  .strip {
+    background: var(--forest);
+    padding: 22px 0;
+    overflow: hidden;
+  }
+  .strip-track {
+    display: flex; gap: 64px;
+    white-space: nowrap;
+    animation: march 28s linear infinite;
+  }
+  @keyframes march { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+  .strip-item {
+    font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    flex-shrink: 0;
+    display: flex; align-items: center; gap: 28px;
+  }
+  .strip-item::after { content: '✦'; color: rgba(255,255,255,.2); }
+
+  /* ══════════════════════════════════════════════════════
+     NUMBERS SECTION (Stats)
+  ══════════════════════════════════════════════════════ */
+  .numbers-section { background: var(--cream); }
+  .numbers-intro {
+    max-width: 640px;
+    margin-bottom: 80px;
+  }
+  .numbers-intro h2 {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    color: var(--forest);
+    margin: 14px 0 20px;
+  }
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border2);
+    border-left: 1px solid var(--border2);
+  }
+  .num-cell {
+    border-bottom: 1px solid var(--border2);
+    border-right: 1px solid var(--border2);
+    padding: 48px 36px;
+    transition: background .3s;
+  }
+  .num-cell:hover { background: rgba(28,56,41,.04); }
+  .num-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    font-weight: 300;
+    color: var(--forest);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .num-label {
+    font-size: .82rem; font-weight: 500; letter-spacing: .08em;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .num-note { font-size: .78rem; color: var(--mid); line-height: 1.5; }
+  .num-accent { color: var(--gold); }
+
+  /* ══════════════════════════════════════════════════════
+     STORY SECTION
+  ══════════════════════════════════════════════════════ */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 700px;
+  }
+  .story-visual {
+    position: relative;
+    overflow: hidden;
+  }
+  .story-visual img {
+    height: 100%;
+    transition: transform 6s ease;
+  }
+  .story-visual:hover img { transform: scale(1.03); }
+  .story-year {
+    position: absolute; top: 48px; left: 48px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem; font-weight: 300; line-height: 1;
+    color: rgba(255,255,255,.12);
+    pointer-events: none;
+    user-select: none;
+  }
+  .story-copy {
+    background: var(--forest);
+    padding: 80px 70px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .story-copy .eyebrow { color: var(--sage-lt); }
+  .story-copy h2 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--white);
+    margin: 16px 0 28px;
+    font-weight: 300;
+  }
+  .story-copy h2 em { font-style: italic; color: #9DCFB6; }
+  .story-copy p {
+    font-size: .98rem; line-height: 1.9;
+    color: rgba(255,255,255,.62);
+    margin-bottom: 20px;
+  }
+  .story-copy p strong { color: rgba(255,255,255,.85); font-weight: 400; }
+  .story-divider { width: 48px; height: 1px; background: var(--sage-lt); margin: 32px 0; }
+  .story-facts { display: flex; gap: 40px; margin-top: 40px; }
+  .story-fact .sf-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; font-weight: 300; color: #9DCFB6; line-height: 1;
+  }
+  .story-fact .sf-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: 6px; }
+
+  /* ══════════════════════════════════════════════════════
+     PROCESS
+  ══════════════════════════════════════════════════════ */
+  .process-section { background: var(--paper); }
+  .process-header { margin-bottom: 64px; }
+  .process-header h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--forest); margin: 14px 0; }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: relative;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute; top: 28px; left: 4%; right: 4%;
+    height: 1px; background: var(--border2); z-index: 0;
+  }
+  .step {
+    position: relative; z-index: 1;
+    text-align: center; padding: 0 12px;
+  }
+  .step-dot {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--paper); border: 1px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 1.3rem;
+    transition: border-color .3s, background .3s;
+  }
+  .step:hover .step-dot { border-color: var(--forest); background: var(--cream); }
+  .step-num { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--forest); margin-bottom: 8px; }
+  .step-label { font-size: .8rem; font-weight: 500; letter-spacing: .08em; color: var(--ink); margin-bottom: 8px; }
+  .step-desc { font-size: .75rem; color: var(--mid); line-height: 1.5; }
+
+  /* ══════════════════════════════════════════════════════
+     FARM VIDEO
+  ══════════════════════════════════════════════════════ */
+  .farm-section { background: var(--cream); }
+  .farm-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+  .farm-header h2 { font-size: clamp(2rem, 3.5vw, 3rem); color: var(--forest); margin: 14px 0 0; }
+  .farm-header p { max-width: 400px; text-align: right; font-size: .9rem; color: var(--mid); line-height: 1.7; }
+  .farm-video-wrap {
+    position: relative;
+    overflow: hidden;
+    background: var(--forest);
+    /* 16:9 */
+    aspect-ratio: 16/9;
+  }
+  .farm-video-wrap video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .farm-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border2);
+    border-left: 1px solid var(--border2);
+    margin-top: 0;
+  }
+  .farm-stat {
+    border-right: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+    padding: 36px 32px;
+  }
+  .farm-stat .fs-n { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 300; color: var(--forest); line-height: 1; }
+  .farm-stat .fs-l { font-size: .78rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--mid); margin-top: 8px; }
+
+  /* ══════════════════════════════════════════════════════
+     SCIENCE / COMPARISON
+  ══════════════════════════════════════════════════════ */
+  .science-section { background: var(--forest); }
+  .science-header { margin-bottom: 64px; }
+  .science-header .eyebrow { color: var(--sage-lt); }
+  .science-header h2 {
+    font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 300;
+    color: var(--white); margin: 16px 0 20px;
+  }
+  .science-header p { max-width: 580px; color: rgba(255,255,255,.5); font-size: .95rem; line-height: 1.8; }
+  .science-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+  .science-quotes { display: flex; flex-direction: column; gap: 40px; }
+  .science-quote {
+    padding: 32px 0;
+    border-top: 1px solid rgba(255,255,255,.1);
+  }
+  .science-quote .sq-source { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--sage-lt); margin-bottom: 14px; }
+  .science-quote .sq-text { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 300; font-style: italic; color: rgba(255,255,255,.8); line-height: 1.5; }
+  .sci-table { width: 100%; border-collapse: collapse; }
+  .sci-table thead th {
+    font-size: .7rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+    color: rgba(255,255,255,.4); padding: 0 0 16px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    text-align: left;
+  }
+  .sci-table thead th:not(:first-child) { text-align: right; }
+  .sci-table tbody td {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    font-size: .9rem;
+    color: rgba(255,255,255,.6);
+    vertical-align: middle;
+  }
+  .sci-table tbody td:not(:first-child) { text-align: right; }
+  .sci-table tbody tr:hover td { color: rgba(255,255,255,.9); }
+  .sci-table .highlight { color: #9DCFB6 !important; font-weight: 500; }
+  .sci-table .row-label { color: rgba(255,255,255,.85); font-weight: 400; }
+
+  /* ══════════════════════════════════════════════════════
+     GALLERY
+  ══════════════════════════════════════════════════════ */
+  .gallery-section { background: var(--paper); }
+  .gallery-header { margin-bottom: 48px; }
+  .gallery-header h2 { font-size: clamp(2rem, 3.5vw, 3rem); color: var(--forest); margin: 14px 0; }
+  .gallery-masonry {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 12px;
+  }
+  .g-item { overflow: hidden; position: relative; cursor: pointer; background: var(--cream); }
+  .g-item img { width: 100%; height: 100%; transition: transform .6s ease; }
+  .g-item:hover img { transform: scale(1.04); }
+  .g-item .g-cap {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 20px 24px;
+    background: linear-gradient(transparent, rgba(0,0,0,.55));
+    font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+    transform: translateY(4px);
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+  }
+  .g-item:hover .g-cap { opacity: 1; transform: translateY(0); }
+  /* Mosaic positions */
+  .g1 { grid-column: 1/6;  grid-row: 1; height: 420px; }
+  .g2 { grid-column: 6/9;  grid-row: 1; height: 420px; }
+  .g3 { grid-column: 9/13; grid-row: 1; height: 420px; }
+  .g4 { grid-column: 1/4;  grid-row: 2; height: 360px; }
+  .g5 { grid-column: 4/9;  grid-row: 2; height: 360px; }
+  .g6 { grid-column: 9/13; grid-row: 2; height: 360px; }
+
+  /* ══════════════════════════════════════════════════════
+     PRODUCTS
+  ══════════════════════════════════════════════════════ */
+  .shop-section { background: var(--cream); }
+  .shop-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+  .shop-header h2 { font-size: clamp(2rem, 3.5vw, 3rem); color: var(--forest); margin: 14px 0 0; }
+  .shop-header p { max-width: 380px; text-align: right; font-size: .88rem; color: var(--mid); line-height: 1.7; }
+  .products-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border2);
+    border-left: 1px solid var(--border2);
+  }
+  .product {
+    border-right: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+    padding: 40px 32px;
+    display: flex; flex-direction: column;
+    background: var(--white);
+    transition: background .3s;
+    position: relative;
+  }
+  .product:hover { background: var(--paper); }
+  .product-flag {
+    position: absolute; top: 0; left: 32px;
+    font-size: .62rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+    padding: 6px 14px;
+    background: var(--forest); color: var(--white);
+  }
+  .product-icon-wrap {
+    height: 140px; display: flex; align-items: center; justify-content: center;
+    margin: 32px 0 28px;
+    font-size: 4rem;
+  }
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400;
+    color: var(--forest); margin-bottom: 10px;
+  }
+  .product-dose {
+    font-size: .72rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 12px;
+  }
+  .product-desc { font-size: .85rem; color: var(--mid); line-height: 1.7; margin-bottom: 24px; flex: 1; }
+  .product-price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 24px; }
+  .p-price { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--forest); }
+  .p-was   { font-size: .82rem; color: var(--mid); text-decoration: line-through; }
+  .add-btn {
+    width: 100%; padding: 13px;
+    background: transparent;
+    border: 1px solid var(--forest);
+    font-family: 'Jost', sans-serif;
+    font-size: .75rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--forest); cursor: pointer;
+    transition: all .25s;
+  }
+  .add-btn:hover { background: var(--forest); color: var(--white); }
+  .add-btn.featured-btn { background: var(--forest); color: var(--white); }
+  .add-btn.featured-btn:hover { background: var(--sage); }
+
+  /* ══════════════════════════════════════════════════════
+     CERTIFICATIONS
+  ══════════════════════════════════════════════════════ */
+  .certs-section { background: var(--paper); }
+  .certs-header { margin-bottom: 56px; }
+  .certs-header h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--forest); margin: 14px 0; }
+  .certs-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+  .cert-cell {
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 24px;
+    text-align: center;
+    transition: background .3s;
+  }
+  .cert-cell:hover { background: var(--cream); }
+  .cert-cell .cc-icon { font-size: 2rem; margin-bottom: 14px; }
+  .cert-cell .cc-name { font-size: .82rem; font-weight: 500; color: var(--forest); margin-bottom: 6px; }
+  .cert-cell .cc-sub  { font-size: .72rem; color: var(--mid); line-height: 1.4; }
+
+  /* ══════════════════════════════════════════════════════
+     TESTIMONIALS
+  ══════════════════════════════════════════════════════ */
+  .testimonials-section { background: var(--cream); }
+  .testi-header { margin-bottom: 64px; }
+  .testi-header h2 { font-size: clamp(2rem, 3.5vw, 3rem); color: var(--forest); margin: 14px 0; }
+  .testi-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border2);
+    border-left: 1px solid var(--border2);
+  }
+  .testi-card {
+    border-right: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+    padding: 48px 40px;
+    background: var(--white);
+    transition: background .3s;
+  }
+  .testi-card:hover { background: var(--paper); }
+  .testi-stars { letter-spacing: 3px; color: var(--gold); font-size: .85rem; margin-bottom: 24px; }
+  .testi-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.22rem; font-weight: 300; font-style: italic;
+    color: var(--ink); line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .testi-rule { width: 32px; height: 1px; background: var(--border2); margin-bottom: 24px; }
+  .testi-author .ta-name { font-size: .85rem; font-weight: 500; color: var(--forest); }
+  .testi-author .ta-loc  { font-size: .78rem; color: var(--mid); margin-top: 4px; }
+
+  /* ══════════════════════════════════════════════════════
+     CTA
+  ══════════════════════════════════════════════════════ */
+  .cta-section {
+    background: var(--forest);
+    padding: 120px 0;
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: 'N';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40vw; font-weight: 300;
+    color: rgba(255,255,255,.03);
+    position: absolute; top: 50%; right: -5%;
+    transform: translateY(-50%);
+    line-height: 1; pointer-events: none; user-select: none;
+  }
+  .cta-body { max-width: 700px; }
+  .cta-body .eyebrow { color: var(--sage-lt); margin-bottom: 20px; display: block; }
+  .cta-body h2 {
+    font-size: clamp(2.2rem, 4.5vw, 4rem);
+    font-weight: 300; color: var(--white);
+    margin-bottom: 28px; line-height: 1.1;
+  }
+  .cta-body h2 em { font-style: italic; color: #9DCFB6; }
+  .cta-body p { font-size: .98rem; color: rgba(255,255,255,.5); line-height: 1.8; max-width: 520px; margin-bottom: 44px; }
+  .cta-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .cta-section .whatsapp-inline {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 34px;
+    background: #25D366;
+    font-family: 'Jost', sans-serif; font-size: .82rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--white); transition: background .3s;
+  }
+  .cta-section .whatsapp-inline:hover { background: #1fa855; }
+
+  /* ══════════════════════════════════════════════════════
+     FOOTER
+  ══════════════════════════════════════════════════════ */
+  footer { background: var(--ink); padding: 80px 0 36px; }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 64px; padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .footer-brand .fb-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 400; color: var(--white); letter-spacing: .06em;
+    margin-bottom: 6px;
+  }
+  .footer-brand .fb-sub {
+    font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+    color: rgba(255,255,255,.3); margin-bottom: 24px;
+  }
+  .footer-brand .fb-desc {
+    font-size: .85rem; color: rgba(255,255,255,.35); line-height: 1.7; max-width: 280px; margin-bottom: 28px;
+  }
+  .social-row { display: flex; gap: 16px; }
+  .soc {
+    width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .85rem; color: rgba(255,255,255,.4);
+    transition: all .3s;
+  }
+  .soc:hover { border-color: rgba(255,255,255,.4); color: var(--white); }
+  .footer-col h5 { font-size: .72rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 24px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .footer-col ul a { font-size: .87rem; color: rgba(255,255,255,.35); transition: color .3s; }
+  .footer-col ul a:hover { color: rgba(255,255,255,.75); }
+  .nl-input-row { display: flex; margin-top: 4px; }
+  .nl-input-row input {
+    flex: 1; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+    border-right: none; padding: 11px 18px; color: var(--white); font-family: 'Jost', sans-serif; font-size: .85rem; outline: none;
+  }
+  .nl-input-row input::placeholder { color: rgba(255,255,255,.25); }
+  .nl-input-row button {
+    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.12);
+    padding: 11px 20px; color: rgba(255,255,255,.6); cursor: pointer;
+    font-family: 'Jost', sans-serif; font-size: .8rem; transition: all .3s;
+  }
+  .nl-input-row button:hover { background: rgba(255,255,255,.18); color: var(--white); }
+  .footer-bottom {
+    padding-top: 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    font-size: .75rem; color: rgba(255,255,255,.25); letter-spacing: .06em;
+  }
+  .footer-bottom a { color: rgba(255,255,255,.25); transition: color .3s; }
+  .footer-bottom a:hover { color: rgba(255,255,255,.5); }
+  .footer-links { display: flex; gap: 28px; }
+
+  /* ══════════════════════════════════════════════════════
+     FLOATING ELEMENTS
+  ══════════════════════════════════════════════════════ */
+  .wa-float {
+    position: fixed; bottom: 30px; right: 30px; z-index: 200;
+    width: 54px; height: 54px;
+    background: #25D366; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,.18);
+    transition: transform .3s, box-shadow .3s;
+    cursor: pointer;
+  }
+  .wa-float:hover { transform: scale(1.06); box-shadow: 0 6px 32px rgba(0,0,0,.22); }
+  .cart-pill {
+    position: fixed; top: 50%; right: 0; z-index: 200;
+    transform: translateY(-50%) translateX(calc(100% - 4px));
+    background: var(--forest); color: var(--white);
+    padding: 16px 12px;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+    cursor: pointer;
+    transition: transform .35s;
+    writing-mode: vertical-lr;
+    border-radius: 4px 0 0 4px;
+  }
+  .cart-pill:hover { transform: translateY(-50%) translateX(0); }
+  .cart-pill .cp-count {
+    writing-mode: horizontal-tb;
+    background: var(--gold); color: var(--white);
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .72rem; font-weight: 600;
+  }
+
+  /* Lightbox */
+  #lb { position: fixed; inset: 0; background: rgba(0,0,0,.92); z-index: 500; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; }
+  #lb.open { opacity: 1; pointer-events: all; }
+  #lb img { max-width: 90vw; max-height: 88vh; object-fit: contain; }
+  #lb-x { position: absolute; top: 24px; right: 28px; font-size: 1.5rem; color: rgba(255,255,255,.5); cursor: pointer; font-weight: 300; transition: color .2s; }
+  #lb-x:hover { color: var(--white); }
+
+  /* Cart toast */
+  #toast {
+    position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(12px);
+    background: var(--forest); color: var(--white);
+    padding: 14px 32px; font-size: .82rem; letter-spacing: .08em;
+    opacity: 0; pointer-events: none; transition: all .35s; z-index: 300;
+  }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ══════════════════════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════════════════════ */
+  @media (max-width: 1080px) {
+    .numbers-grid      { grid-template-columns: repeat(2,1fr); }
+    .products-list     { grid-template-columns: repeat(2,1fr); }
+    .certs-row         { grid-template-columns: repeat(3,1fr); }
+    .process-steps     { grid-template-columns: repeat(3,1fr); gap: 32px; }
+    .process-steps::before { display: none; }
+    .science-layout    { grid-template-columns: 1fr; gap: 48px; }
+    .footer-top        { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .farm-stats-row    { grid-template-columns: repeat(2,1fr); }
+  }
+  @media (max-width: 768px) {
+    .container         { padding: 0 24px; }
+    .nav-links         { display: none; }
+    .story-grid        { grid-template-columns: 1fr; }
+    .story-visual      { height: 360px; }
+    .story-copy        { padding: 52px 32px; }
+    .gallery-masonry   { grid-template-columns: 1fr 1fr; }
+    .g1,.g2,.g3,.g4,.g5,.g6 { grid-column: auto; grid-row: auto; height: 240px; }
+    .testi-grid        { grid-template-columns: 1fr; }
+    .products-list     { grid-template-columns: 1fr; }
+    .numbers-grid      { grid-template-columns: 1fr 1fr; }
+    .farm-header       { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .farm-header p     { text-align: left; max-width: 100%; }
+    .shop-header       { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .shop-header p     { text-align: left; max-width: 100%; }
+    .footer-top        { grid-template-columns: 1fr; }
+    .certs-row         { grid-template-columns: repeat(2,1fr); }
+    .footer-bottom     { flex-direction: column; text-align: center; }
+    .footer-links      { flex-wrap: wrap; justify-content: center; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═════════════════════════════════════ -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="n1">Nirvana Organics</span>
+      <span class="n2">Aurangabad, Maharashtra</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#science">Science</a></li>
+      <li><a href="#farm">The Farm</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#shop">Shop</a></li>
+    </ul>
+    <a href="#shop" class="nav-shop">Shop Now</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ════════════════════════════════════════════ -->
+<section id="hero">
+  <video autoplay muted loop playsinline preload="auto" src="farm-video.mp4"></video>
+  <div class="hero-shade"></div>
+  <div class="container hero-body">
+    <p class="hero-kicker">Grown on the Deccan Plateau</p>
+    <h1 class="hero-h1">
+      The Earth's Most<br>
+      <em>Ancient</em> Superfood.<br>
+      Perfected Here.
+    </h1>
+    <div class="hero-foot">
+      <a href="#shop" class="btn btn-dark">Purchase</a>
+      <a href="#story" class="btn btn-outline-lt">Our Story</a>
+      <span class="hero-meta">Aurangabad, MH &nbsp;·&nbsp; Est. 2011</span>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══ STRIP ═══════════════════════════════════════════ -->
+<div class="strip">
+  <div class="strip-track">
+    <span class="strip-item">70% Pure Protein</span>
+    <span class="strip-item">Cold-Pressed at ≤35°C</span>
+    <span class="strip-item">GMP Certified</span>
+    <span class="strip-item">58× More Iron Than Spinach</span>
+    <span class="strip-item">FSSAI Approved</span>
+    <span class="strip-item">NASA Recommended Superfood</span>
+    <span class="strip-item">300% More Calcium Than Milk</span>
+    <span class="strip-item">WHO: Best Food for the Future</span>
+    <span class="strip-item">Farm to Tablet in 48 Hours</span>
+    <span class="strip-item">100% Vegan</span>
+    <span class="strip-item">NABL Lab Tested</span>
+    <!-- duplicate -->
+    <span class="strip-item">70% Pure Protein</span>
+    <span class="strip-item">Cold-Pressed at ≤35°C</span>
+    <span class="strip-item">GMP Certified</span>
+    <span class="strip-item">58× More Iron Than Spinach</span>
+    <span class="strip-item">FSSAI Approved</span>
+    <span class="strip-item">NASA Recommended Superfood</span>
+    <span class="strip-item">300% More Calcium Than Milk</span>
+    <span class="strip-item">WHO: Best Food for the Future</span>
+    <span class="strip-item">Farm to Tablet in 48 Hours</span>
+    <span class="strip-item">100% Vegan</span>
+    <span class="strip-item">NABL Lab Tested</span>
+  </div>
+</div>
+
+<!-- ═══ STORY ════════════════════════════════════════════ -->
+<section id="story">
+  <div class="story-grid">
+    <div class="story-visual reveal">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=85" alt="Farm on the Deccan Plateau" />
+      <div class="story-year">2011</div>
+    </div>
+    <div class="story-copy">
+      <span class="eyebrow">Our Story</span>
+      <h2>Where Ancient Land<br>Meets <em>Living Science</em></h2>
+      <p>In 2011, our founders stood on the edge of the Deccan Plateau and asked a question that would change everything: <strong>what if India's most generous land could produce the world's most powerful nutrition?</strong></p>
+      <p>Aurangabad — home to the Ajanta & Ellora Caves and centuries of civilisation — holds a secret that is invisible to the naked eye. Its alkaline groundwater, drawn from the Godavari basin, registers a natural pH of 9.5 — the precise environment spirulina has evolved over 3.5 billion years to thrive in. No chemical intervention required.</p>
+      <p>Add 300 days of Maharashtra sunshine and diurnal temperatures that mirror optimal cultivation conditions, and you have something extraordinary: <strong>spirulina with a protein content 15% above international benchmarks.</strong></p>
+      <div class="story-divider"></div>
+      <div class="story-facts">
+        <div class="story-fact">
+          <div class="sf-num">20</div>
+          <div class="sf-label">Acres of cultivation</div>
+        </div>
+        <div class="story-fact">
+          <div class="sf-num">35</div>
+          <div class="sf-label">Raceway ponds</div>
+        </div>
+        <div class="story-fact">
+          <div class="sf-num">48h</div>
+          <div class="sf-label">Farm to tablet</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NUMBERS ══════════════════════════════════════════ -->
+<section class="section numbers-section">
+  <div class="container">
+    <div class="numbers-intro reveal">
+      <span class="eyebrow">The Science</span>
+      <h2>Numbers That Changed<br>How the World Eats</h2>
+      <p class="body-lg">Spirulina is not a supplement. It is a complete food — the most nutrient-dense organism on Earth, gram for gram, without exception.</p>
+    </div>
+    <div class="numbers-grid">
+      <div class="num-cell reveal">
+        <div class="num-big">70<span style="font-size:2.2rem">%</span></div>
+        <div class="num-label">Pure Protein Content</div>
+        <div class="num-note">Beef provides 26%. Chicken 31%. Soy 36%. Spirulina: 70%. The highest protein density of any natural food.</div>
+      </div>
+      <div class="num-cell reveal">
+        <div class="num-big">58<span style="font-size:2.2rem;font-style:italic">×</span></div>
+        <div class="num-label">More Iron Than Spinach</div>
+        <div class="num-note">28.5mg per 100g. Highly bioavailable. Critical for haemoglobin synthesis and energy production.</div>
+      </div>
+      <div class="num-cell reveal">
+        <div class="num-big">300<span style="font-size:2.2rem">%</span></div>
+        <div class="num-label">More Calcium Than Milk</div>
+        <div class="num-note">Per gram. Ideal for those who are lactose-intolerant, vegan, or concerned about bone density.</div>
+      </div>
+      <div class="num-cell reveal">
+        <div class="num-big">25<span style="font-size:2.2rem;font-style:italic">×</span></div>
+        <div class="num-label">More Beta-Carotene</div>
+        <div class="num-note">Than carrots. Converts to Vitamin A. Essential for vision, immune function, and cellular repair.</div>
+      </div>
+      <div class="num-cell reveal">
+        <div class="num-big">9<span class="num-accent" style="font-size:2.2rem">/9</span></div>
+        <div class="num-label">Essential Amino Acids</div>
+        <div class="num-note">A complete protein profile. Extraordinarily rare in the plant kingdom. Equivalent to animal protein.</div>
+      </div>
+      <div class="num-cell reveal">
+        <div class="num-big">3.5<span style="font-size:1.8rem">B</span></div>
+        <div class="num-label">Years on Earth</div>
+        <div class="num-note">The oldest food source still consumed by humans. Found in ancient Aztec manuscripts as a primary nutrition source.</div>
+      </div>
+      <div class="num-cell reveal">
+        <div class="num-big">18</div>
+        <div class="num-label">Vitamins & Minerals</div>
+        <div class="num-note">B1, B2, B3, B6, B12, C, D, E, K — plus iron, calcium, magnesium, zinc, selenium, phosphorus, and more.</div>
+      </div>
+      <div class="num-cell reveal">
+        <div class="num-big">0</div>
+        <div class="num-label">Synthetic Additives</div>
+        <div class="num-note">No fillers, binders, or artificial compounds. Every tablet contains only what the earth made.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FARM VIDEO ════════════════════════════════════════ -->
+<section class="section farm-section" id="farm">
+  <div class="container">
+    <div class="farm-header reveal">
+      <div>
+        <span class="eyebrow">The Farm</span>
+        <h2>Twenty Acres of<br>Deliberate Cultivation</h2>
+      </div>
+      <p>Every pond, every harvest cycle, every hour of Maharashtra sunshine is captured in the tablet you hold. This is what intentional agriculture looks like.</p>
+    </div>
+  </div>
+  <div class="container-wide">
+    <div class="farm-video-wrap reveal">
+      <video src="farm-video.mp4" controls playsinline preload="metadata"></video>
+    </div>
+    <div class="farm-stats-row">
+      <div class="farm-stat reveal"><div class="fs-n">20</div><div class="fs-l">Acres of cultivation land, Aurangabad</div></div>
+      <div class="farm-stat reveal"><div class="fs-n">300+</div><div class="fs-l">Annual sunshine days on the Deccan Plateau</div></div>
+      <div class="farm-stat reveal"><div class="fs-n">pH 9.5</div><div class="fs-l">Natural alkalinity of Godavari basin water</div></div>
+      <div class="farm-stat reveal"><div class="fs-n">0°C</div><div class="fs-l">Synthetic chemicals used in cultivation</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ══════════════════════════════════════════ -->
+<section class="section process-section">
+  <div class="container">
+    <div class="process-header reveal">
+      <span class="eyebrow">How We Work</span>
+      <h2>From the Pond to Your Hand,<br>Nothing Is Left to Chance</h2>
+    </div>
+    <div class="process-steps">
+      <div class="step reveal">
+        <div class="step-dot">💧</div>
+        <div class="step-num">01</div>
+        <div class="step-label">Inoculation</div>
+        <div class="step-desc">Pure starter culture introduced into mineral-rich Godavari water at precise pH 9.5</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">☀️</div>
+        <div class="step-num">02</div>
+        <div class="step-label">Growth Phase</div>
+        <div class="step-desc">5–7 days in open raceway ponds under full Maharashtra sun. Paddle wheels ensure even exposure</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">🔬</div>
+        <div class="step-num">03</div>
+        <div class="step-label">Quality Test</div>
+        <div class="step-desc">NABL-accredited laboratory analysis. Protein, microbial, and heavy metal screening before harvest</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">🌿</div>
+        <div class="step-num">04</div>
+        <div class="step-label">Harvesting</div>
+        <div class="step-desc">Filtered at peak nutritional density. Harvested only when protein content meets our benchmark</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">❄️</div>
+        <div class="step-num">05</div>
+        <div class="step-label">Cold-Drying</div>
+        <div class="step-desc">Dried at ≤35°C. Heat-sensitive phycocyanin, B12, and GLA are preserved at 98% potency</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">◯</div>
+        <div class="step-num">06</div>
+        <div class="step-label">Your Tablet</div>
+        <div class="step-desc">Cold-pressed in our GMP facility. Packed within 48 hours of harvest. Nothing added</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ══════════════════════════════════════════ -->
+<section class="section gallery-section" id="gallery">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <span class="eyebrow">Gallery</span>
+      <h2>The Farm in Full Light</h2>
+    </div>
+  </div>
+  <div class="container-wide">
+    <div class="gallery-masonry">
+      <div class="g-item g1 reveal" onclick="openLb(this)">
+        <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=900&q=85" alt="Cultivation ponds at sunrise" />
+        <div class="g-cap">Cultivation Ponds · Sunrise</div>
+      </div>
+      <div class="g-item g2 reveal" onclick="openLb(this)">
+        <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=600&q=85" alt="Spirulina powder" />
+        <div class="g-cap">Pure Spirulina Powder</div>
+      </div>
+      <div class="g-item g3 reveal" onclick="openLb(this)">
+        <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=700&q=85" alt="Deccan Plateau farm" />
+        <div class="g-cap">Deccan Plateau</div>
+      </div>
+      <div class="g-item g4 reveal" onclick="openLb(this)">
+        <img src="https://images.unsplash.com/photo-1543362906-acfc16c67564?w=600&q=85" alt="Spirulina water" />
+        <div class="g-cap">Cultivation Water</div>
+      </div>
+      <div class="g-item g5 reveal" onclick="openLb(this)">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85" alt="Quality testing" />
+        <div class="g-cap">NABL Lab Testing</div>
+      </div>
+      <div class="g-item g6 reveal" onclick="openLb(this)">
+        <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=700&q=85" alt="Green superfood" />
+        <div class="g-cap">Earth's Densest Nutrition</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCIENCE TABLE ════════════════════════════════════ -->
+<section class="section science-section" id="science">
+  <div class="container">
+    <div class="science-header reveal">
+      <span class="eyebrow">Nutrition Science</span>
+      <h2>Compare Everything.<br>Then Decide.</h2>
+      <p>These figures are drawn from peer-reviewed nutritional databases. We do not round up. We do not cherry-pick. The numbers stand on their own.</p>
+    </div>
+    <div class="science-layout">
+      <div class="science-quotes">
+        <div class="science-quote reveal">
+          <div class="sq-source">NASA — Technical Memorandum, 1988</div>
+          <div class="sq-text">"Spirulina is the most efficient food for long-duration space travel. One kilogram replaces roughly a thousand kilograms of assorted foods."</div>
+        </div>
+        <div class="science-quote reveal">
+          <div class="sq-source">World Health Organisation</div>
+          <div class="sq-text">"Spirulina represents an interesting food for multiple reasons, given its content in proteins and vitamins. It is the best food for the future."</div>
+        </div>
+        <div class="science-quote reveal">
+          <div class="sq-source">United Nations Food & Agriculture Organisation</div>
+          <div class="sq-text">"Spirulina is the most complete and nutritionally dense food available. Its cultivation requires a fraction of the land and water of conventional agriculture."</div>
+        </div>
+        <div class="science-quote reveal">
+          <div class="sq-source">Aztec Civilisation · 700 AD</div>
+          <div class="sq-text">"Described in the chronicles of the Spanish conquistadors as the principal food of the Aztec people — harvested from Lake Texcoco and consumed as daily cakes."</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <table class="sci-table">
+          <thead>
+            <tr>
+              <th>Nutrient (per 100g)</th>
+              <th>Nirvana<br>Spirulina</th>
+              <th>Chicken</th>
+              <th>Spinach</th>
+              <th>Lentils</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-label">Protein (g)</td>
+              <td class="highlight">70</td><td>31</td><td>2.9</td><td>9</td>
+            </tr>
+            <tr>
+              <td class="row-label">Iron (mg)</td>
+              <td class="highlight">28.5</td><td>0.7</td><td>2.7</td><td>3.3</td>
+            </tr>
+            <tr>
+              <td class="row-label">Calcium (mg)</td>
+              <td class="highlight">120</td><td>11</td><td>99</td><td>19</td>
+            </tr>
+            <tr>
+              <td class="row-label">Vitamin B12 (μg)</td>
+              <td class="highlight">32</td><td>0.3</td><td>0</td><td>0</td>
+            </tr>
+            <tr>
+              <td class="row-label">Beta-Carotene (mg)</td>
+              <td class="highlight">140</td><td>0</td><td>5.6</td><td>0.1</td>
+            </tr>
+            <tr>
+              <td class="row-label">Complete amino acids</td>
+              <td class="highlight">All 9</td><td>All 9</td><td>Partial</td><td>Partial</td>
+            </tr>
+            <tr>
+              <td class="row-label">GLA (omega fatty acid)</td>
+              <td class="highlight">Present</td><td>Absent</td><td>Absent</td><td>Absent</td>
+            </tr>
+            <tr>
+              <td class="row-label">Antioxidant (ORAC)</td>
+              <td class="highlight">24,000</td><td>—</td><td>1,515</td><td>7,282</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SHOP ═════════════════════════════════════════════ -->
+<section class="section shop-section" id="shop">
+  <div class="container">
+    <div class="shop-header reveal">
+      <div>
+        <span class="eyebrow">Shop</span>
+        <h2>Choose Your Daily Practice</h2>
+      </div>
+      <p>All products are cold-pressed, GMP certified, FSSAI approved, and independently tested by a NABL-accredited laboratory. No exceptions.</p>
+    </div>
+    <div class="products-list">
+      <div class="product reveal">
+        <div class="product-icon-wrap">💊</div>
+        <div class="product-name">Daily Vitality</div>
+        <div class="product-dose">500mg · 120 Tablets · 60-day supply</div>
+        <div class="product-desc">The ideal starting point. Two tablets daily with water, morning or evening. Consistent, measured, effective.</div>
+        <div class="product-price-row">
+          <span class="p-price">₹499</span>
+          <span class="p-was">₹649</span>
+        </div>
+        <button class="add-btn" onclick="addCart('Daily Vitality', 499)">Add to Cart</button>
+      </div>
+      <div class="product reveal" style="position:relative;">
+        <div class="product-flag">Best Seller</div>
+        <div class="product-icon-wrap">⚡</div>
+        <div class="product-name">Premium Power</div>
+        <div class="product-dose">1000mg · 90 Tablets · 45-day supply</div>
+        <div class="product-desc">Double strength. Formulated for athletes, practitioners of yoga, and those seeking accelerated nutritional restoration.</div>
+        <div class="product-price-row">
+          <span class="p-price">₹899</span>
+          <span class="p-was">₹1,199</span>
+        </div>
+        <button class="add-btn featured-btn" onclick="addCart('Premium Power', 899)">Add to Cart</button>
+      </div>
+      <div class="product reveal">
+        <div class="product-icon-wrap">🌿</div>
+        <div class="product-name">Superfood Pack</div>
+        <div class="product-dose">500mg · 360 Tablets · 6-month supply</div>
+        <div class="product-desc">The complete annual foundation. A six-month commitment to your health at our best value per tablet.</div>
+        <div class="product-price-row">
+          <span class="p-price">₹1,299</span>
+          <span class="p-was">₹1,799</span>
+        </div>
+        <button class="add-btn" onclick="addCart('Superfood Pack', 1299)">Add to Cart</button>
+      </div>
+      <div class="product reveal">
+        <div class="product-icon-wrap">🏡</div>
+        <div class="product-name">Family Bundle</div>
+        <div class="product-dose">500mg · 720 Tablets · Free shipping</div>
+        <div class="product-desc">For households that take nutrition seriously. 720 tablets — our lowest cost per tablet, delivered free.</div>
+        <div class="product-price-row">
+          <span class="p-price">₹2,199</span>
+          <span class="p-was">₹3,199</span>
+        </div>
+        <button class="add-btn" onclick="addCart('Family Bundle', 2199)">Add to Cart</button>
+      </div>
+    </div>
+    <div style="margin-top:32px;display:flex;gap:40px;flex-wrap:wrap;" class="reveal">
+      <span class="body-sm">🚚 Free delivery above ₹999</span>
+      <span class="body-sm">🔄 30-day satisfaction guarantee</span>
+      <span class="body-sm">📦 Ships from Aurangabad within 24 hours</span>
+      <span class="body-sm">🔒 Secure payment</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CERTIFICATIONS ════════════════════════════════════ -->
+<section class="section certs-section">
+  <div class="container">
+    <div class="certs-header reveal">
+      <span class="eyebrow">Certified By</span>
+      <h2>Every Standard That Matters</h2>
+    </div>
+    <div class="certs-row">
+      <div class="cert-cell reveal"><div class="cc-icon">🇮🇳</div><div class="cc-name">FSSAI Certified</div><div class="cc-sub">Food Safety & Standards Authority of India</div></div>
+      <div class="cert-cell reveal"><div class="cc-icon">⚗️</div><div class="cc-name">GMP Certified</div><div class="cc-sub">WHO-grade Good Manufacturing Practice</div></div>
+      <div class="cert-cell reveal"><div class="cc-icon">🔬</div><div class="cc-name">NABL Tested</div><div class="cc-sub">National Accreditation Board for Laboratories</div></div>
+      <div class="cert-cell reveal"><div class="cc-icon">🌿</div><div class="cc-name">Organic</div><div class="cc-sub">No synthetic chemicals or pesticides — ever</div></div>
+      <div class="cert-cell reveal"><div class="cc-icon">✅</div><div class="cc-name">ISO 9001:2015</div><div class="cc-sub">International quality management standard</div></div>
+      <div class="cert-cell reveal"><div class="cc-icon">🌱</div><div class="cc-name">100% Vegan</div><div class="cc-sub">No animal-derived ingredients or processing aids</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ══════════════════════════════════════ -->
+<section class="section testimonials-section">
+  <div class="container">
+    <div class="testi-header reveal">
+      <span class="eyebrow">Testimonials</span>
+      <h2>What People Say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Three months in, my haemoglobin rose from 9.8 to 12.4. My doctor asked what I had changed. I said: two tablets every morning from a farm in Aurangabad."</p>
+        <div class="testi-rule"></div>
+        <div class="testi-author">
+          <div class="ta-name">Priya Sharma</div>
+          <div class="ta-loc">Mumbai · Marathon Runner</div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"As a competitive bodybuilder, I have tried every protein supplement available. Nirvana Organics is the only one I have visited. That matters to me."</p>
+        <div class="testi-rule"></div>
+        <div class="testi-author">
+          <div class="ta-name">Rahul Deshmukh</div>
+          <div class="ta-loc">Pune · Professional Bodybuilder</div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"My son was B12 deficient at eight years old. Ninety days of spirulina later, his levels are completely normal. I am a paediatrician. I now recommend this."</p>
+        <div class="testi-rule"></div>
+        <div class="testi-author">
+          <div class="ta-name">Dr. Sunita Patil</div>
+          <div class="ta-loc">Aurangabad · Paediatrician</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-body reveal">
+      <span class="eyebrow">Begin Today</span>
+      <h2>Your Best Health Starts<br>with One <em>Small Decision</em></h2>
+      <p>50,000 people across India begin their morning with Nirvana Organics. Farm to tablet in 48 hours. Delivered to your door.</p>
+      <div class="cta-actions">
+        <a href="#shop" class="btn btn-gold">Purchase</a>
+        <a href="https://wa.me/919999999999?text=Hello%2C%20I%20would%20like%20to%20order%20Nirvana%20Organics%20Spirulina" target="_blank" class="whatsapp-inline">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fb-name">Nirvana Organics</div>
+        <div class="fb-sub">Aurangabad, Maharashtra · Est. 2011</div>
+        <p class="fb-desc">Grown with intention on the Deccan Plateau. From our farm to your health — nothing added, nothing removed.</p>
+        <div class="social-row">
+          <a class="soc" href="#" title="Instagram">Ig</a>
+          <a class="soc" href="#" title="Facebook">Fb</a>
+          <a class="soc" href="#" title="YouTube">Yt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#science">The Science</a></li>
+          <li><a href="#farm">The Farm</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#shop">Shop</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="#">Aurangabad, MH 431001</a></li>
+          <li><a href="tel:+919999999999">+91 99999 99999</a></li>
+          <li><a href="mailto:hello@nirvanaorganics.in">hello@nirvanaorganics.in</a></li>
+          <li><a href="#">Farm visits: by appointment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Stay in Touch</h5>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.3);margin-bottom:16px;line-height:1.6;">Farm updates, seasonal harvests, health research. No noise.</p>
+        <div class="nl-input-row">
+          <input type="email" placeholder="Your email" />
+          <button>→</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Nirvana Organics. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Refunds</a>
+        <a href="#">Shipping</a>
+      </div>
+      <span>Made with care in Aurangabad, Maharashtra</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ FLOATING ═══════════════════════════════════════════ -->
+<a class="wa-float" href="https://wa.me/919999999999" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<div class="cart-pill" id="cartPill">
+  <div class="cp-count" id="cpCount">0</div>
+  Cart
+</div>
+
+<div id="toast">Item added to cart</div>
+
+<div id="lb" onclick="closeLb()">
+  <span id="lb-x" onclick="closeLb()">✕</span>
+  <img src="" id="lb-img" alt="" />
+</div>
+
+<script>
+  /* ── Nav solid on scroll ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 60), {passive:true});
+
+  /* ── Reveal on scroll ── */
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('in'), i*70); ro.unobserve(e.target); } });
+  }, {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  /* ── Cart ── */
+  let n = 0;
+  function addCart(name, price){
+    n++;
+    document.getElementById('cpCount').textContent = n;
+    const t = document.getElementById('toast');
+    t.textContent = name + ' added — ₹' + price.toLocaleString('en-IN');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), 2800);
+  }
+
+  /* ── Lightbox ── */
+  function openLb(el){
+    document.getElementById('lb-img').src = el.querySelector('img').src;
+    document.getElementById('lb').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb(){
+    document.getElementById('lb').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
+</body>
+</html>
