@@ -1404,7 +1404,7 @@
       <p>50,000 people across India begin their morning with Nirvana Organics. Farm to tablet in 48 hours. Delivered to your door.</p>
       <div class="cta-actions">
         <a href="#shop" class="btn btn-gold">Purchase</a>
-        <a href="https://wa.me/919999999999?text=Hello%2C%20I%20would%20like%20to%20order%20Nirvana%20Organics%20Spirulina" target="_blank" class="whatsapp-inline">Chat on WhatsApp</a>
+        <a href="https://wa.me/918669657774?text=Hello%21%20I%20would%20like%20to%20order%20Nirvana%20Organics%20Spirulina." target="_blank" class="whatsapp-inline">Chat on WhatsApp</a>
       </div>
     </div>
   </div>
@@ -1438,7 +1438,7 @@
         <h5>Contact</h5>
         <ul>
           <li><a href="#">Aurangabad, MH 431001</a></li>
-          <li><a href="tel:+919999999999">+91 99999 99999</a></li>
+          <li><a href="tel:+918669657774">+91 86696 57774</a></li>
           <li><a href="mailto:hello@nirvanaorganics.in">hello@nirvanaorganics.in</a></li>
           <li><a href="#">Farm visits: by appointment</a></li>
         </ul>
@@ -1466,7 +1466,7 @@
 </footer>
 
 <!-- ═══ FLOATING ═══════════════════════════════════════════ -->
-<a class="wa-float" href="https://wa.me/919999999999" target="_blank" title="Chat on WhatsApp">💬</a>
+<a class="wa-float" href="https://wa.me/918669657774" target="_blank" title="Chat on WhatsApp">💬</a>
 
 <div class="cart-pill" id="cartPill">
   <div class="cp-count" id="cpCount">0</div>
@@ -1612,9 +1612,9 @@
 
     // WhatsApp checkout link
     if(items.length){
-      const lines = items.map(k => `${k} ×${cart[k]} — ${fmt(PRODUCTS[k].price * cart[k])}`).join('%0A');
-      const msg = `Hello! I'd like to order:%0A%0A${lines}%0A%0ATotal: ${fmt(total)}%0A%0APlease confirm availability and delivery.`;
-      document.getElementById('checkoutBtn').href = `https://wa.me/919999999999?text=${msg}`;
+      const lines = items.map(k => `${k} ×${cart[k]} — ${fmt(PRODUCTS[k].price * cart[k])}`).join('\n');
+      const msg = `Hello! I'd like to order:\n\n${lines}\n\nSubtotal: ${fmt(subtotal)}\nShipping: ${shipping === 0 ? 'Free' : fmt(shipping)}\nTotal: ${fmt(total)}\n\nPlease confirm availability and delivery address.`;
+      document.getElementById('checkoutBtn').href = `https://wa.me/918669657774?text=${encodeURIComponent(msg)}`;
     }
   }
 
