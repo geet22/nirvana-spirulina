@@ -483,6 +483,24 @@
     padding: 6px 14px;
     background: var(--forest); color: var(--white);
   }
+
+  /* Discount badge */
+  .discount-badge {
+    position: absolute; top: 16px; right: 16px;
+    width: 62px; height: 62px; border-radius: 50%;
+    background: linear-gradient(145deg, #E53E3E, #C53030);
+    box-shadow: 0 3px 14px rgba(229,62,62,.45), 0 0 0 3px rgba(229,62,62,.12);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #fff; font-family: 'Jost', sans-serif; text-align: center;
+    z-index: 2; transform: rotate(-8deg);
+    animation: badge-pulse 2.4s ease-in-out infinite;
+  }
+  .discount-badge .db-pct  { display:block; font-size:1.05rem; font-weight:700; line-height:1.1; }
+  .discount-badge .db-off  { display:block; font-size:.52rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
+  @keyframes badge-pulse {
+    0%,100% { transform: rotate(-8deg) scale(1); }
+    50%      { transform: rotate(-8deg) scale(1.1); }
+  }
   .product-icon-wrap {
     height: 140px; display: flex; align-items: center; justify-content: center;
     margin: 32px 0 28px;
@@ -1281,16 +1299,17 @@
       </div>
     </div>
     <div class="products-list">
-      <div class="product reveal">
+      <div class="product reveal" style="position:relative;">
+        <div class="discount-badge"><span class="db-pct">40%</span><span class="db-off">off</span></div>
         <div class="product-icon-wrap">💊</div>
         <div class="product-name">Daily Vitality</div>
         <div class="product-dose">500mg · 60 Tablets · 30-day supply</div>
         <div class="product-desc">The ideal starting point. Two tablets daily with water, morning or evening. Consistent, measured, effective.</div>
         <div class="product-price-row">
-          <span class="p-price">₹499</span>
-          <span class="p-was">₹649</span>
+          <span class="p-price">₹300</span>
+          <span class="p-was">₹499</span>
         </div>
-        <button class="add-btn" onclick="addCart('Daily Vitality', 499)">Add to Cart</button>
+        <button class="add-btn" onclick="addCart('Daily Vitality', 300)">Add to Cart</button>
       </div>
       <div class="product reveal">
         <div class="product-icon-wrap">🌿</div>
@@ -1302,6 +1321,18 @@
           <span class="p-was">₹1,799</span>
         </div>
         <button class="add-btn" onclick="addCart('Superfood Pack', 1299)">Add to Cart</button>
+      </div>
+      <div class="product reveal" style="position:relative;">
+        <div class="product-flag">Best Value</div>
+        <div class="product-icon-wrap">⭐</div>
+        <div class="product-name">Pro Pack</div>
+        <div class="product-dose">500mg · 500 Tablets · 8-month supply</div>
+        <div class="product-desc">Our most popular choice for committed practitioners. 500 tablets — maximum nutrition, maximum value per tablet.</div>
+        <div class="product-price-row">
+          <span class="p-price">₹1,699</span>
+          <span class="p-was">₹2,499</span>
+        </div>
+        <button class="add-btn" onclick="addCart('Pro Pack', 1699)">Add to Cart</button>
       </div>
       <div class="product reveal">
         <div class="product-icon-wrap">🏡</div>
@@ -1500,8 +1531,9 @@
 
   /* ══ CART ════════════════════════════════════════════ */
   const PRODUCTS = {
-    'Daily Vitality':  { icon:'💊', dose:'500mg · 60 Tablets',  price:499  },
+    'Daily Vitality':  { icon:'💊', dose:'500mg · 60 Tablets',  price:300  },
     'Superfood Pack':  { icon:'🌿', dose:'500mg · 360 Tablets', price:1299 },
+    'Pro Pack':        { icon:'⭐', dose:'500mg · 500 Tablets', price:1699 },
     'Family Bundle':   { icon:'🏡', dose:'500mg · 720 Tablets', price:2199 },
   };
 
