@@ -1286,7 +1286,7 @@
       <div class="product reveal">
         <div class="product-icon-wrap">💊</div>
         <div class="product-name">Daily Vitality</div>
-        <div class="product-dose">500mg · 120 Tablets · 60-day supply</div>
+        <div class="product-dose">500mg · 60 Tablets · 30-day supply</div>
         <div class="product-desc">The ideal starting point. Two tablets daily with water, morning or evening. Consistent, measured, effective.</div>
         <div class="product-price-row">
           <span class="p-price">₹499</span>
@@ -1515,7 +1515,7 @@
 
   /* ══ CART ════════════════════════════════════════════ */
   const PRODUCTS = {
-    'Daily Vitality':  { icon:'💊', dose:'500mg · 120 Tablets', price:499  },
+    'Daily Vitality':  { icon:'💊', dose:'500mg · 60 Tablets',  price:499  },
     'Premium Power':   { icon:'⚡', dose:'1000mg · 90 Tablets', price:899  },
     'Superfood Pack':  { icon:'🌿', dose:'500mg · 360 Tablets', price:1299 },
     'Family Bundle':   { icon:'🏡', dose:'500mg · 720 Tablets', price:2199 },
@@ -1614,7 +1614,7 @@
     if(items.length){
       const lines = items.map(k => `${k} ×${cart[k]} — ${fmt(PRODUCTS[k].price * cart[k])}`).join('\n');
       const msg = `Hello! I'd like to order:\n\n${lines}\n\nSubtotal: ${fmt(subtotal)}\nShipping: ${shipping === 0 ? 'Free' : fmt(shipping)}\nTotal: ${fmt(total)}\n\nPlease confirm availability and delivery address.`;
-      document.getElementById('checkoutBtn').href = `https://wa.me/918669657774?text=${encodeURIComponent(msg)}`;
+      document.getElementById('checkoutBtn').href = `https://api.whatsapp.com/send?phone=918669657774&text=${encodeURIComponent(msg)}`;
     }
   }
 
