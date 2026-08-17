@@ -351,6 +351,32 @@
      FARM VIDEO
   ══════════════════════════════════════════════════════ */
   .farm-section { background: var(--cream); }
+
+  /* ── Spirulina close-up reel ───────────────────────────── */
+  .spirulina-reel {
+    position: relative; width: 100%; height: 80vh; min-height: 480px;
+    overflow: hidden; background: #000;
+  }
+  .spirulina-reel video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .spira-shade {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,.18) 0%, rgba(0,0,0,.5) 100%);
+  }
+  .spira-caption {
+    position: absolute; bottom: 56px; left: 50%; transform: translateX(-50%);
+    text-align: center; width: 100%;
+  }
+  .spira-caption p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 300; color: #fff;
+    letter-spacing: -.01em; line-height: 1.25;
+    text-shadow: 0 2px 24px rgba(0,0,0,.4);
+  }
+  .spira-caption p em { font-style: italic; color: rgba(255,255,255,.75); }
   .farm-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
   .farm-header h2 { font-size: clamp(2rem, 3.5vw, 3rem); color: var(--forest); margin: 14px 0 0; }
   .farm-header p { max-width: 400px; text-align: right; font-size: .9rem; color: var(--mid); line-height: 1.7; }
@@ -1084,6 +1110,16 @@
         <div class="num-note">No fillers, binders, or artificial compounds. Every tablet contains only what the earth made.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ═══ SPIRULINA CLOSE-UP ════════════════════════════════ -->
+<section class="spirulina-reel">
+  <video autoplay muted loop playsinline webkit-playsinline preload="auto" src="spirulina-close.mp4" id="spiraVideo"></video>
+  <div class="spira-shade"></div>
+  <div class="spira-caption">
+    <span class="eyebrow" style="color:rgba(255,255,255,.5);">Spirulina platensis</span>
+    <p>3.5 billion years of evolution.<br><em>Visible to the naked eye.</em></p>
   </div>
 </section>
 
